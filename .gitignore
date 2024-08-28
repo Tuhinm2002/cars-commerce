@@ -1,0 +1,62 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### client ###
+
+react-client/logs
+react-client/*.log
+react-client/npm-debug.log*
+react-client/yarn-debug.log*
+react-client/yarn-error.log*
+react-client/pnpm-debug.log*
+react-client/lerna-debug.log*
+
+react-client/node_modules
+react-client/dist
+react-client/dist-ssr
+react-client/*.local
+
+# Editor directories and files
+react-client/.vscode/*
+react-client/!.vscode/extensions.json
+react-client/.idea
+react-client/.DS_Store
+react-client/*.suo
+react-client/*.ntvs*
+react-client/*.njsproj
+react-client/*.sln
+react-client/*.sw?
+
+### html ###
+client/*
