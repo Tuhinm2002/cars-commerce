@@ -1,9 +1,6 @@
 package com.tuhin.EcomProject.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.processing.Generated;
@@ -21,6 +18,18 @@ public class Product {
     private String Model;
     private Date date;
     private String category;
+    private boolean available;
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String imageUrl) {
+        this.url = imageUrl;
+    }
+
+
 
     public boolean isAvailable() {
         return available;
@@ -37,9 +46,6 @@ public class Product {
     public void setCategory(String category) {
         this.category = category;
     }
-
-    private boolean available;
-
 
 
     public int getId() {

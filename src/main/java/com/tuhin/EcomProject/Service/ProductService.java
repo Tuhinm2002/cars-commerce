@@ -5,6 +5,8 @@ import com.tuhin.EcomProject.Repository.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+
 import java.util.List;
 
 @Service
@@ -19,5 +21,9 @@ public class ProductService {
 
     public Product getOneProduct(int prodId) {
         return repo.findById(prodId).orElse(new Product());
+    }
+
+    public Product addProduct(Product product){
+        return repo.save(product);
     }
 }

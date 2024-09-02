@@ -3,6 +3,8 @@ package com.tuhin.EcomProject.Controller;
 import com.tuhin.EcomProject.Model.Product;
 import com.tuhin.EcomProject.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,4 +24,16 @@ public class ProductController {
     public Product showProduct(@PathVariable int prodId){
         return service.getOneProduct(prodId);
     }
+
+    @PostMapping("/add_products")
+    public ResponseEntity<?> addProduct(@RequestPart Product product){
+
+        try {
+            Product returnProdct = service.addProduct(product);
+            return new ResponseEntity<>(returnProdct, HttpStatus.CREATED);
+        } catch (Exception e) {
+        return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }
