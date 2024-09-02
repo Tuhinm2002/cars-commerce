@@ -1,5 +1,5 @@
 import React from "react";
-import img from ''
+import img from './images'
 
 function new_f(){
     return

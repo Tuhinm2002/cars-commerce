@@ -15,7 +15,7 @@ export default function CardView(props) {
     <Card sx={{ maxWidth: 345}}>
       <CardMedia
         sx={{ height: 140 }}
-        image={`../images/${props.url}`}
+        image={`./images/${props.url}`}
         title={props.name}
       />
       <CardContent>
