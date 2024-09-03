@@ -12,10 +12,11 @@ export default function CardView(props) {
   const {prodId} = params;
   console.log(prodId)
   return (
-    <Card sx={{ maxWidth: 345}}>
+    <Card sx={{ maxWidth: 345,maxHeight:345}}>
       <CardMedia
+        component="img"
         sx={{ height: 140 }}
-        image={`./images/${props.url}`}
+        image={`/src/components/images/${props.imageUrl}`}
         title={props.name}
       />
       <CardContent>
@@ -23,9 +24,12 @@ export default function CardView(props) {
           {props.Name}
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Category : {props.Category} 
-          Brand : {props.BrandName} 
+          Category : {props.Category}
+          <br></br>
+          Brand : {props.BrandName}
+          <br></br> 
           Model : {props.ModelName}
+          &nbsp;
           Date : {props.DateVal}
         </Typography>
       </CardContent>

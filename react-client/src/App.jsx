@@ -5,6 +5,7 @@ import Products from './components/Products';
 import Home from './components/Home';
 import CardView from './components/CardView';
 import SingleProduct from './components/SingleProduct';
+import AddProduct from './components/AddProduct';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 
 
@@ -25,6 +26,10 @@ function App() {
     {
       path : "/products/:prodId",
       element : <SingleProduct/>
+    },
+    {
+      path : "/add_products",
+      element : <AddProduct/>
     }
   ])
 

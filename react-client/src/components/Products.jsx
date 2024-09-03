@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid2';
 import CardView from './CardView';
 import axios from 'axios';
 import { useEffect,useState } from 'react';
+import { Height } from '@mui/icons-material';
 
 export default function Products() {
 
@@ -40,7 +41,8 @@ export default function Products() {
             borderBottom: 'var(--Grid-borderWidth) solid',
             borderColor: 'divider',
             margin : '10px',
-            width : 'fit-content'
+            width : 'fit-content',
+            height:'fit-content'
           },
         }}
       >

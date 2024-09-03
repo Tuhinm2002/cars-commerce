@@ -14,8 +14,8 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
 
-const pages = ['Home', 'Product', 'About US'];
-const pageLinks = ['/','/products','/cards']
+const pages = ['Home', 'Product', 'Add Products','About US'];
+const pageLinks = ['/','/products','/add_products','/cards']
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
