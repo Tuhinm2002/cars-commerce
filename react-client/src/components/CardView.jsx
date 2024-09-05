@@ -11,12 +11,15 @@ export default function CardView(props) {
   const params = useParams();
   const {prodId} = params;
   console.log(prodId)
+
+  // {`/src/components/images/${props.imageUrl}`}
+
   return (
     <Card sx={{ maxWidth: 345,maxHeight:345}}>
       <CardMedia
         component="img"
         sx={{ height: 140 }}
-        image={`/src/components/images/${props.imageUrl}`}
+        image=""
         title={props.name}
       />
       <CardContent>

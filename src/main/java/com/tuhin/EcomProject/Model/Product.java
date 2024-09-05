@@ -19,17 +19,33 @@ public class Product {
     private Date date;
     private String category;
     private boolean available;
-    private String url;
+    private String imageFileName;
+    private String imagFileType;
+    private byte[] imageFileData;
 
-    public String getUrl() {
-        return url;
+    public byte[] getImageFileData() {
+        return imageFileData;
     }
 
-    public void setUrl(String imageUrl) {
-        this.url = imageUrl;
+    public void setImageFileData(byte[] imageFileData) {
+        this.imageFileData = imageFileData;
     }
 
+    public String getImagFileType() {
+        return imagFileType;
+    }
 
+    public void setImagFileType(String imagFileType) {
+        this.imagFileType = imagFileType;
+    }
+
+    public String getImageFileName() {
+        return imageFileName;
+    }
+
+    public void setImageFileName(String imageFileName) {
+        this.imageFileName = imageFileName;
+    }
 
     public boolean isAvailable() {
         return available;

@@ -9,6 +9,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { useState } from 'react';
+import axios from 'axios';
 
 function GridComplexExample() {
   const [dateValue,setDateValue] = useState(null)
@@ -40,9 +41,15 @@ function GridComplexExample() {
     const name = document.getElementById('formGridFullName')
     // const available = document.getElementById('formGridCheckbox')
     const dateUTC = `${dateValue.$y+"-"+dateValue.$D+"-"+dateValue.$M+1}`
-    console.log(available===true);
+    
+    const submited = async () => { 
+      await axios.post("http://localhost:8080/add_products",{
+        brand,model,category,name,dateUTC
+      })
+      
+    }
 
-
+    
   }
 
   // submitValue()

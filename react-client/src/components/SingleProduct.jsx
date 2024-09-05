@@ -34,11 +34,13 @@ export default function SingleProduct(){
         fetchProduct()
     },[])
 
+    // src={`/src/components/images/${responseData.url}`}
+
   return (
     
     <Card className="text-center">
       <Card.Header>Your choosed {responseData.name}</Card.Header>
-      <Card.Img variant="top" src={`/src/components/images/${responseData.url}`}
+      <Card.Img variant="top" 
        style={{height:300,objectFit:'contain',marginTop:10}}/>
       <Card.Body>
         <Card.Title>{responseData.name}</Card.Title>
