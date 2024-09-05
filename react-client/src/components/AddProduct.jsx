@@ -1,46 +1,61 @@
-import React from "react";
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import * as React from 'react';
+import dayjs from 'dayjs';
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
+function GridComplexExample() {
+  return (
+    <Form className='w-25 mt-4' style={{margin:"auto"}}>
+      <Row className="mb-3">
+        <Form.Group as={Col} controlId="formGridEmail">
+          <Form.Label>Vehicle Brand</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" />
+        </Form.Group>
 
+        <Form.Group as={Col} controlId="formGridPassword">
+          <Form.Label>Vehicle Model</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
+      </Row>
 
-export default function AddProduct(){
+      <Form.Group className="mb-3 ml-4 " controlId="formGridAddress1">
+        <Form.Label>Vehicle Category</Form.Label>
+        <Form.Control placeholder="1234 Main St" />
+      </Form.Group>
 
-    return(
-    <form class="row g-3 mt-4 ml-2">
-  <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">Vehicle Name</label>
-    <input type="email" class="form-control" id="inputEmail4" />
-  </div>
-  <div class="col-md-6">
-    <label for="inputPassword4" class="form-label">Vehicle Category</label>
-    <input type="password" class="form-control" id="inputPassword4" />
-  </div>
-  <div class="col-12">
-    <label for="inputAddress" class="form-label">Vehicle model</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" />
-  </div>
-  <div class="col-12">
-    <label for="inputAddress2" class="form-label">Vehicle brand</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
-  </div>
-  <div class="col-md-6">
-    <label for="inputCity" class="form-label">Date</label>
-    <input type="text" class="form-control" id="inputCity" />
-  </div>
-  <div class="mb-3">
-  <label for="formFileMultiple" class="form-label">Vehicle image</label>
-  <input class="form-control" type="file" id="formFileMultiple" multiple />
-</div>
-  <div class="col-12">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck" />
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
-    </div>
-  </div>
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary">Sign in</button>
-  </div>
-</form>
-);
+      <Form.Group className="mb-3" controlId="formGridAddress2">
+        <Form.Label>Vehicle Full Name</Form.Label>
+        <Form.Control placeholder="Apartment, studio, or floor" />
+      </Form.Group>
+
+      <Row className="mb-3">
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <DemoContainer components={['DatePicker']}>
+        <DatePicker label="Basic date picker" />
+      </DemoContainer>
+    </LocalizationProvider>
+
+        <Form.Group controlId="formFileMultiple" className="mb-3 mt-3">
+        <Form.Label>Multiple files input example</Form.Label>
+        <Form.Control type="file" multiple />
+      </Form.Group>
+      </Row>
+
+      <Form.Group className="mb-3" id="formGridCheckbox">
+        <Form.Check type="checkbox" label="Is Available" />
+      </Form.Group>
+
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Form>
+  );
 }
+
+export default GridComplexExample;
