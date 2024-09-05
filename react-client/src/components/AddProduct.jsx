@@ -32,23 +32,31 @@ function GridComplexExample() {
     setAvailable(true)
   }
   
-  function submitValue(e){
+  async function submitValue(e){
     e.preventDefault();
     
+    try{
     const brand = document.getElementById('formGridBrand')
     const model = document.getElementById('formGridModel')
     const category = document.getElementById('formGridCategory')
     const name = document.getElementById('formGridFullName')
     // const available = document.getElementById('formGridCheckbox')
     const dateUTC = `${dateValue.$y+"-"+dateValue.$D+"-"+dateValue.$M+1}`
-    
-    const submited = async () => { 
-      await axios.post("http://localhost:8080/add_products",{
-        brand,model,category,name,dateUTC
-      })
-      
-    }
 
+    const user = {brand : brand.value,
+      model : model.value,
+      category : category.value,
+      name : name.value,
+      date : dateUTC,
+      imageFile : file,
+      available : available
+    }
+    await axios.post("http://localhost:8080/add_products",user)
+    console.log(user);
+  }
+  catch(err){
+    console.log(err)
+  }
     
   }
 
