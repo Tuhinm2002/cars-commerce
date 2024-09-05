@@ -1,25 +1,31 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import CardActionArea from '@mui/material/CardActionArea';
-import CardActions from '@mui/material/CardActions';
-import { useEffect,useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import axios from 'axios';
+import { useEffect,useState } from 'react';
+
 
 export default function SingleProduct(){
     const curr_val = window.location.href.slice(-1);
     // console.log(curr_val)
-    const [data,setData] = useState(null)
+    const [responseData,setResponseData] = useState([])
+    const [available,setAvailable] = useState(null);
     
     useEffect(() =>{
         const fetchProduct = async () =>{
         try {
         const val = await axios.get(`http://localhost:8080/products/${curr_val}`)
         .then(res =>{
-        console.log(res.data);
+        setResponseData(res.data);
+        if(res.data.available){
+          let st = "Available"
+          setAvailable(st);
+        }
+        else{
+          let st = "Not available";
+          setAvailable(st);
+        }
+
         })
         } catch (error) {
             console.log(error);
@@ -29,29 +35,23 @@ export default function SingleProduct(){
     },[])
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Lizard
-          </Typography>
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Buy Now
-        </Button>
-      </CardActions>
+    
+    <Card className="text-center">
+      <Card.Header>Your choosed {responseData.name}</Card.Header>
+      <Card.Img variant="top" src={`/src/components/images/${responseData.url}`}
+       style={{height:300,objectFit:'contain',marginTop:10}}/>
+      <Card.Body>
+        <Card.Title>{responseData.name}</Card.Title>
+        <Card.Text>
+          Category : {responseData.category} &nbsp; Brand : {responseData.brand} &nbsp; Model : {responseData.model}
+          <br></br>
+          Date Added : {responseData.date}
+          <br></br>
+          Price : {responseData.price}
+        </Card.Text>
+        <Button variant="primary">Buy now</Button>
+      </Card.Body>
+      <Card.Footer className="text-muted">Available : {available}</Card.Footer>
     </Card>
   );
 }

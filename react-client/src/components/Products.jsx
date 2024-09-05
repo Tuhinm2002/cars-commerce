@@ -4,7 +4,6 @@ import Grid from '@mui/material/Grid2';
 import CardView from './CardView';
 import axios from 'axios';
 import { useEffect,useState } from 'react';
-import { Height } from '@mui/icons-material';
 
 export default function Products() {
 
