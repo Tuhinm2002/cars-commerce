@@ -12,27 +12,43 @@ import { useState } from 'react';
 
 function GridComplexExample() {
   const [dateValue,setDateValue] = useState(null)
-  function submitValue(){
+  const [file,setFile] = useState(null);
+  const [available,setAvailable] = useState(true);
+
+  function submitPreventReload(e){
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("image",file);
+  }
+
+  function handleFile(event) {
+    event.preventDefault();
+    setFile(event.target.files[0])
+  }
+
+  function handleAvailble(e){
+    e.preventDefault();
+    setAvailable(true)
+  }
+  
+  function submitValue(e){
+    e.preventDefault();
     
-    try{
     const brand = document.getElementById('formGridBrand')
     const model = document.getElementById('formGridModel')
     const category = document.getElementById('formGridCategory')
     const name = document.getElementById('formGridFullName')
-    const available = document.getElementById('formGridCheckbox')
-    console.log(dateValue)
+    // const available = document.getElementById('formGridCheckbox')
+    const dateUTC = `${dateValue.$y+"-"+dateValue.$D+"-"+dateValue.$M+1}`
+    console.log(available===true);
 
-    }
-    catch{
-      console.log("null")
-    }
 
   }
 
   // submitValue()
 
   return (
-    <Form className='w-25 mt-4' style={{margin:"auto"}}>
+    <Form className='w-25 mt-4' style={{margin:"auto"}} onSubmit={submitPreventReload}>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridBrand">
           <Form.Label>Vehicle Brand</Form.Label>
@@ -64,15 +80,16 @@ function GridComplexExample() {
 
         <Form.Group controlId="formFileMultiple" className="mb-3 mt-3">
         <Form.Label>Multiple files input example</Form.Label>
-        <Form.Control type="file" multiple />
+        <Form.Control type="file" multiple onChange={handleFile}/>
       </Form.Group>
       </Row>
 
       <Form.Group className="mb-3" id="formGridCheckbox">
-        <Form.Check type="checkbox" label="Is Available" />
+        <Form.Check type="checkbox" label="Is Available" value={available} 
+        onChange={handleAvailble}/>
       </Form.Group>
 
-      <Button variant="primary" type="submit" onClick={submitValue()} >
+      <Button variant="primary" type="submit" onClick={submitValue} >
         Submit
       </Button>
     </Form>
