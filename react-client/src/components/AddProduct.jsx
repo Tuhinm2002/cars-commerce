@@ -16,11 +16,12 @@ function GridComplexExample() {
   const [file,setFile] = useState(null);
   const [available,setAvailable] = useState(true);
 
-  function submitPreventReload(e){
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("image",file);
-  }
+  // function submitPreventReload(e){
+  //   e.preventDefault();
+  //   const formData = new FormData();
+  //   formData.append("image",file);
+    
+  // }
 
   function handleFile(event) {
     event.preventDefault();
@@ -32,7 +33,7 @@ function GridComplexExample() {
     setAvailable(true)
   }
   
-  async function submitValue(e){
+  function submitValue(e){
     e.preventDefault();
     
     try{
@@ -48,11 +49,22 @@ function GridComplexExample() {
       category : category.value,
       name : name.value,
       date : dateUTC,
-      imageFile : file,
-      available : available
+      available : available,
     }
-    await axios.post("http://localhost:8080/add_products",user)
-    console.log(user);
+    const formData = new FormData();
+    // 
+    formData.append(
+      "product",
+      new Blob([JSON.stringify(user)], { type: "application/json" })
+    );
+    formData.append("imageFile", file);
+    axios
+      .post("http://localhost:8080/add_products", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+    console.log(formData);
   }
   catch(err){
     console.log(err)
@@ -62,8 +74,9 @@ function GridComplexExample() {
 
   // submitValue()
 
+  // onSubmit={submitPreventReload}
   return (
-    <Form className='w-25 mt-4' style={{margin:"auto"}} onSubmit={submitPreventReload}>
+    <Form className='w-25 mt-4' style={{margin:"auto"}} onSubmit={submitValue}> 
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridBrand">
           <Form.Label>Vehicle Brand</Form.Label>
@@ -95,7 +108,7 @@ function GridComplexExample() {
 
         <Form.Group controlId="formFileMultiple" className="mb-3 mt-3">
         <Form.Label>Multiple files input example</Form.Label>
-        <Form.Control type="file" multiple onChange={handleFile}/>
+        <Form.Control type="file" accept='image/*' multiple onChange={handleFile}/>
       </Form.Group>
       </Row>
 
@@ -104,7 +117,7 @@ function GridComplexExample() {
         onChange={handleAvailble}/>
       </Form.Group>
 
-      <Button variant="primary" type="submit" onClick={submitValue} >
+      <Button variant="primary" type="submit">
         Submit
       </Button>
     </Form>

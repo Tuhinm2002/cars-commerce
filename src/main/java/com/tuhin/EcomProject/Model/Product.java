@@ -21,6 +21,7 @@ public class Product {
     private boolean available;
     private String imageFileName;
     private String imagFileType;
+    @Lob
     private byte[] imageFileData;
 
     public byte[] getImageFileData() {

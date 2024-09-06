@@ -58,7 +58,7 @@ export default function Products() {
           >
         <CardView Name={item.name} Category={item.category} DateVal={item.date}
         Availability={item.available} ModelName = {item.model} BrandName = {item.brand}
-        prodId = {item.id} ></CardView>
+        prodId = {item.id} imageUrl = {item.imageFileData}></CardView>
         {/* imageUrl = {item.url} */}
         </Grid>
         ))}

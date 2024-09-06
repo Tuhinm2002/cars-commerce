@@ -21,6 +21,7 @@ export default function CardView(props) {
         sx={{ height: 140 }}
         image=""
         title={props.name}
+        src={props.imageUrl}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
