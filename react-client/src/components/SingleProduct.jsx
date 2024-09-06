@@ -10,6 +10,7 @@ export default function SingleProduct(){
     // console.log(curr_val)
     const [responseData,setResponseData] = useState([])
     const [available,setAvailable] = useState(null);
+    const [imageUrl,setImageUrl] = useState("");
     
     useEffect(() =>{
         const fetchProduct = async () =>{
@@ -17,6 +18,17 @@ export default function SingleProduct(){
         const val = await axios.get(`http://localhost:8080/products/${curr_val}`)
         .then(res =>{
         setResponseData(res.data);
+        if(res.data.imageFileData){
+          // fetchImage();
+          const fetchImage = async () => {
+            const response = await axios.get(
+              `http://localhost:8080/products/${curr_val}/image`,
+              { responseType: "blob" }
+            );
+            setImageUrl(URL.createObjectURL(response.data));
+          };
+          fetchImage()
+        }
         if(res.data.available){
           let st = "Available"
           setAvailable(st);
@@ -30,9 +42,12 @@ export default function SingleProduct(){
         } catch (error) {
             console.log(error);
         }
+        
         }
         fetchProduct()
     },[])
+
+    
 
     // src={`/src/components/images/${responseData.url}`}
 
@@ -40,7 +55,7 @@ export default function SingleProduct(){
     
     <Card className="text-center">
       <Card.Header>Your choosed {responseData.name}</Card.Header>
-      <Card.Img variant="top" src={responseData.imageFileData}
+      <Card.Img variant="top" src={imageUrl}
        style={{height:300,objectFit:'contain',marginTop:10}}/>
       <Card.Body>
         <Card.Title>{responseData.name}</Card.Title>

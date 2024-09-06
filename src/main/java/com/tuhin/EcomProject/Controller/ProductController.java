@@ -22,10 +22,10 @@ public class ProductController {
         return service.getAllProducts();
     }
 
-//    @GetMapping("/products/{prodId}")
-//    public Product showProduct(@PathVariable int prodId){
-//        return service.getOneProduct(prodId);
-//    }
+    @GetMapping("/products/{prodId}")
+    public Product showProduct(@PathVariable int prodId){
+        return service.getOneProduct(prodId);
+    }
 
 
 //    @CrossOrigin(origins = "http://localhost:5173/")
@@ -41,11 +41,12 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/products/{prodId}")
+    @GetMapping("/products/{prodId}/image")
     public ResponseEntity<byte[]> getImageById(@PathVariable int prodId){
         Product product = service.getOneProduct(prodId);
         byte[] imageFile = product.getImageFileData();
         return ResponseEntity.ok()
+                .contentType(MediaType.valueOf(product.getImagFileType()))
                 .body(imageFile);
     }
 
