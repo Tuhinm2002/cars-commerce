@@ -5,14 +5,25 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { useParams } from 'react-router-dom';
+import { useParams} from 'react-router-dom';
+import axios from 'axios';
+import { useState } from 'react';
 
 export default function CardView(props) {
   const params = useParams();
   const {prodId} = params;
-  console.log(prodId)
+  const [imageUrl,setImageUrl] = useState("");
 
   // {`/src/components/images/${props.imageUrl}`}
+
+  const fetchImage = async () => {
+    const responseData = await axios.get(
+      `http://localhost:8080/products/${props.prodId}/image`,
+      { responseType: "blob" }
+    );
+    setImageUrl(URL.createObjectURL(responseData.data));
+  };
+  fetchImage()
 
   return (
     <Card sx={{ maxWidth: 345,maxHeight:345}}>
@@ -21,7 +32,7 @@ export default function CardView(props) {
         sx={{ height: 140 }}
         image=""
         title={props.name}
-        src={props.image}
+        src={imageUrl}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

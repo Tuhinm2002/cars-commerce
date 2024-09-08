@@ -8,7 +8,6 @@ import { useEffect,useState } from 'react';
 export default function Products() {
 
   const [product,setProduct] = useState([]);
-  const [imageUrl,setImageUrl] = useState("");
 
   useEffect(() =>{
     const fetchProduct = async () =>{
@@ -17,19 +16,6 @@ export default function Products() {
       .then(res =>{
       
       setProduct(res.data);
-      
-      if(res.data.imageFileData){
-      const fetchImage = async () => {
-        const responseData = await axios.get(
-          console.log(product.id)
-          `http://localhost:8080/products/${res.data.id}/image`,
-          { responseType: "blob" }
-        );
-        setImageUrl(URL.createObjectURL(responseData.data));
-      };
-      fetchImage()
-    }
-      
       })
     } catch (error) {
       console.log(error)
@@ -74,7 +60,7 @@ export default function Products() {
           >
         <CardView Name={item.name} Category={item.category} DateVal={item.date}
         Availability={item.available} ModelName = {item.model} BrandName = {item.brand}
-        prodId = {item.id} image = {imageUrl}></CardView>
+        prodId = {item.id} ></CardView>
         {/* imageUrl = {item.url} */}
         </Grid>
         ))}
