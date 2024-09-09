@@ -29,4 +29,15 @@ public class ProductService {
         product.setImageFileData(imageFile.getBytes());
         return repo.save(product);
     }
+
+    public Product updateProduct(int id,Product product,MultipartFile imageFile) throws Exception{
+        product.setImageFileName(imageFile.getOriginalFilename());
+        product.setImagFileType(imageFile.getContentType());
+        product.setImageFileData(imageFile.getBytes());
+        return repo.save(product);
+    }
+
+    public void deleteProduct(int id){
+        repo.deleteById(id);
+    }
 }
