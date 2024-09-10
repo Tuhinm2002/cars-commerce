@@ -30,7 +30,8 @@ function App() {
     {
       path : "/add_products",
       element : <AddProduct/>
-    }
+    },
+    
   ])
 
   return (

@@ -5,17 +5,18 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { useParams} from 'react-router-dom';
+import { Navigate, useParams} from 'react-router-dom';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 export default function CardView(props) {
-  const params = useParams();
-  const {prodId} = params;
+  const {prodId} = useParams();
+  // const {prodId} = params;
   const [imageUrl,setImageUrl] = useState("");
 
   // {`/src/components/images/${props.imageUrl}`}
 
+  useEffect(() => {
   const fetchImage = async () => {
     const responseData = await axios.get(
       `http://localhost:8080/products/${props.prodId}/image`,
@@ -24,6 +25,20 @@ export default function CardView(props) {
     setImageUrl(URL.createObjectURL(responseData.data));
   };
   fetchImage()
+
+},[prodId])
+
+async function deleteProduct(e){
+  e.preventDefault()
+  try {
+    await axios.delete(`http://localhost:8080/products/${props.prodId}`)
+    Navigate("/")
+  }
+  catch(error){
+    console.log(error)
+  }
+};
+
 
   return (
     <Card sx={{ maxWidth: 345,maxHeight:345}}>
@@ -49,7 +64,7 @@ export default function CardView(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
+        <Button size="small" onClick={deleteProduct}>Delete</Button>
         <Button size="small" href={`products/${props.prodId}`}>Learn More</Button>
       </CardActions>
     </Card>
