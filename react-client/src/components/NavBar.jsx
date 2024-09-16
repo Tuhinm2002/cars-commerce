@@ -15,7 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 
 
 const pages = ['Home', 'Product', 'Add Products','About US'];
-const pageLinks = ['/','/products','/add_products','/cards']
+const pageLinks = ['/','/products','/add_products','/about']
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -111,7 +111,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            CC
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page,i) => (

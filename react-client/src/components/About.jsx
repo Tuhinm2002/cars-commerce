@@ -5,9 +5,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Box } from '@mui/material';
 
-export default function Home() {
+export default function About() {
   return (
+    <Box sx={{display:'flex',justifyContent:'center',alignContent:'center',marginTop:'10%'}}>
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         sx={{ height: 140 }}
@@ -29,5 +31,6 @@ export default function Home() {
         <Button size="small">Learn More</Button>
       </CardActions>
     </Card>
+    </Box>
   );
 }

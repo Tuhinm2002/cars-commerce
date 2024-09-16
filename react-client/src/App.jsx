@@ -7,6 +7,7 @@ import CardView from './components/CardView';
 import SingleProduct from './components/SingleProduct';
 import AddProduct from './components/AddProduct';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
+import About from './components/About';
 
 
 function App() {
@@ -31,7 +32,10 @@ function App() {
       path : "/add_products",
       element : <AddProduct/>
     },
-    
+    {
+      path : "/about",
+      element : <About/>
+    }
   ])
 
   return (
