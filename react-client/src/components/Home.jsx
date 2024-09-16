@@ -43,8 +43,8 @@ function Home() {
       <div style={{display:'flex',justifyContent:'center',alignItems:'center',marginTop:'2%'}}>
       <h5>Go to add products to add product and see results in products section</h5></div>
       
-      <Box sx={{display:'flex',flexDirection:'column',marginTop:'10%',justifyContent:'center',alignItems:'center'}}>
-        <Typography variant='h4'>Some Most sold famous cars</Typography>
+      <Box sx={{display:'flex',flexDirection:'column',marginTop:'10%',justifyContent:'center',alignItems:'center',marginBottom:'5%'}}>
+        <Typography variant='h4' sx={{marginBottom:'5%'}}>Some Most sold famous cars</Typography>
 
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid size={{ xs: 2, sm: 4, md: 4 }}>
@@ -83,7 +83,7 @@ function Home() {
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
         Land Rover is a British brand of predominantly four-wheel drive, 
-        off-road capable vehicles, owned by multinational car manufacturer Jaguar Land Rover, since 2008 a subsidiary of India's Tata Motors. 
+        off-road capable vehicles, owned by Jaguar Land Rover, since 2008 a subsidiary of India's Tata Motors. 
         </Typography>
       </CardContent>
       <CardActions>
@@ -106,8 +106,7 @@ function Home() {
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
         Mercedes-AMG GmbH, commonly known as AMG, is the high-performance subsidiary of Mercedes-Benz AG. 
-        AMG independently hires engineers and contracts with manufacturers to customize Mercedes-Benz AMG vehicles. 
-        The company has its headquarters in Affalterbach, Baden-Württemberg, Germany.
+        AMG independently hires engineers and contracts with manufacturers 
         </Typography>
       </CardContent>
       <CardActions>
