@@ -27,8 +27,8 @@ export default function About() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button size="small" href=''>Share</Button>
+        <Button size="small" href='https://github.com/Tuhinm2002'>Learn More</Button>
       </CardActions>
     </Card>
     </Box>
