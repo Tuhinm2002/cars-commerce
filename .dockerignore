@@ -60,3 +60,4 @@ react-client/*.sw?
 
 ### html ###
 client/*
+react-client/*
