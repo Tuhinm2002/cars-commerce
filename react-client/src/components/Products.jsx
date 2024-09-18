@@ -4,6 +4,8 @@ import Grid from '@mui/material/Grid2';
 import CardView from './CardView';
 import axios from 'axios';
 import { useEffect,useState } from 'react';
+import { styled } from '@mui/material/styles';
+
 
 export default function Products() {
 
@@ -25,9 +27,15 @@ export default function Products() {
 
   },[])
 
+  const Div = styled('div')(({ theme }) => ({
+    ...theme.typography.button,
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(1),
+  }));
 
-
-  // console.log(product[0].id)
+  if(product != []){
+    return <Div>{"No items added !! Please add items to see the listing 🚀"}</Div>;
+  }
 
   return (
     <Box sx={{ flexGrow: 1, p: 2 }}>

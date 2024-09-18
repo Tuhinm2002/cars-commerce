@@ -1,9 +1,6 @@
-import { useState } from 'react'
+
 import ResponsiveAppBar from './components/NavBar';
-// import CardView from './components/CardView';
 import Products from './components/Products';
-import Home from './components/Home';
-import CardView from './components/CardView';
 import SingleProduct from './components/SingleProduct';
 import AddProduct from './components/AddProduct';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
@@ -14,15 +11,11 @@ function App() {
   const route = createBrowserRouter([
     {
       path : "/",
-      element : <Home/>
+      element : <Products/>
     },
     {
       path : "/products",
       element : <Products/>
-    },
-    {
-      path : "/cards",
-      element : <CardView/>
     },
     {
       path : "/products/:prodId",
