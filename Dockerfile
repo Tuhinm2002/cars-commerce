@@ -1,3 +1,5 @@
+FROM alpine/java:21-jdk
+
 FROM maven:openjdk as builder
 
 WORKDIR /myapp
