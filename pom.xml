@@ -77,6 +77,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>EcomProject</finalName>
 	</build>
 
 </project>
