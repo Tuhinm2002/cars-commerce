@@ -1,4 +1,5 @@
 FROM alpine/java:21-jdk
-ARG JAR_FILE=target/*.jar
-COPY ./target/EcomProject.jar app.jar
+WORKDIR /app
+COPY target/EcomProject.jar app.jar
+EXPOSE 8080
 ENTRYPOINT ["java","-jar","/app.jar"]
