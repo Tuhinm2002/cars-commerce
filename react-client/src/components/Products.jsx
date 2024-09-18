@@ -33,7 +33,8 @@ export default function Products() {
     padding: theme.spacing(1),
   }));
 
-  if(product != []){
+  if(product == []){
+    console.log(product)
     return <Div>{"No items added !! Please add items to see the listing 🚀"}</Div>;
   }
 

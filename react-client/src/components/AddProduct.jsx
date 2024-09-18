@@ -14,7 +14,7 @@ import axios from 'axios';
 function GridComplexExample() {
   const [dateValue,setDateValue] = useState(null)
   const [file,setFile] = useState(null);
-  const [available,setAvailable] = useState(true);
+  const [available,setAvailable] = useState(false);
 
   // function submitPreventReload(e){
   //   e.preventDefault();
@@ -42,7 +42,8 @@ function GridComplexExample() {
     const category = document.getElementById('formGridCategory')
     const name = document.getElementById('formGridFullName')
     // const available = document.getElementById('formGridCheckbox')
-    const dateUTC = `${dateValue.$y+"-"+dateValue.$D+"-"+dateValue.$M+1}`
+    // const dateUTC = `${dateValue.$y+"-"+dateValue.$D+"-"+dateValue.$M}`
+    const dateUTC = dayjs(dateValue);
 
     const user = {brand : brand.value,
       model : model.value,
@@ -101,8 +102,12 @@ function GridComplexExample() {
 
       <Row className="mb-3">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DemoContainer components={['DatePicker']} >
-        <DatePicker value={dateValue} onChange={(newValue) => setDateValue(newValue)} label="Basic date picker"/>
+      <DemoContainer components={['DatePicker']}>
+        <DatePicker
+          defaultValue={dayjs('2022-04-17')}
+          views={['year', 'month', 'day']}
+          value={dateValue} onChange={(newValue) => setDateValue(newValue)} 
+        />
       </DemoContainer>
     </LocalizationProvider>
 
