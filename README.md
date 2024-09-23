@@ -2,6 +2,9 @@
 
 Cars-Commerce is an ecommerce platform for selling cars, built using **React** for the frontend and **Java Spring Boot** for the backend. The platform provides an intuitive user interface for browsing, searching, and purchasing cars, while maintaining a robust backend for managing inventory, orders, and user accounts.
 
+## Project Demo
+![project](https://github.com/user-attachments/assets/7c7e775a-4107-4f0b-839e-04f2a64f31a2)
+
 ## Features
 
 - **User-friendly UI** for browsing cars by make, model, price, and other filters
