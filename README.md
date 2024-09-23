@@ -5,6 +5,20 @@ Cars-Commerce is an ecommerce platform for selling cars, built using **React** f
 ## Project Demo
 ![project](https://github.com/user-attachments/assets/7c7e775a-4107-4f0b-839e-04f2a64f31a2)
 
+## ✅ Running The app
+
+To run the app, you need two terminal,! one for frontend and one for backend
+
+frontend
+```bash
+npm run dev
+```
+
+frontend
+```bash
+java -jar EcomProject.jar
+```
+
 ## Features
 
 - **User-friendly UI** for browsing cars by make, model, price, and other filters
@@ -43,3 +57,25 @@ cars-commerce/
 ├── README.md            # Project README
 └── .github/             # GitHub workflows and CI/CD pipelines
 ```
+## ✅ Running Tests
+
+To run the tests, simply execute:
+
+```bash
+mvn test
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to **fork** this repository, make improvements, and submit a **pull request**. Let's make this project better together! 🌟
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
+## ⭐ If you liked this project, please consider giving it a star! 🌟
+
+If you find this project helpful or interesting, don't forget to **star** the repository and **share** it with others! 
+
+![Star and Share](https://media.giphy.com/media/3o7aD4v3mHJVN0uJUA/giphy.gif)
