@@ -16,7 +16,7 @@ npm run dev
 
 frontend
 ```bash
-java -jar EcomProject.jar
+java -jar /target/EcomProject.jar
 ```
 
 ## Features
